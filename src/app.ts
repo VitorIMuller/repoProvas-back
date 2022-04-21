@@ -13,10 +13,10 @@ dotenv.config();
 
 server.use(cors());
 server.use(json());
-server.use(errorHandleMiddleware)
 server.use(router)
+server.use(errorHandleMiddleware)
 
 
 server.listen(process.env.PORT || 4000, () => {
-    console.log("Running in 4000")
+    console.log(`Running in ${process.env.PORT}`)
 })
