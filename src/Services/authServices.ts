@@ -21,5 +21,22 @@ export async function signUp(user: UserData) {
         email,
         password: hashPassword
     })
+}
 
+export async function signIn({ email, password }: UserData) {
+
+    const user = await authRepository.findByEmail(email)
+    if (!user) throw {
+        type: 'Unauthorized', message: 'User not found!'
+    };
+
+    const checkPassword = bcrypt.compareSync(password, user.password)
+    if (!checkPassword) throw {
+        type: "Unauthorized", message: "Incorrect Password"
+    }
+
+    const session = await authRepository.insertOneSession(user.id)
+    const token = jwt.sign({ id: session.id.toString() }, `${process.env.JWT_SECRET}`);
+
+    return token
 }

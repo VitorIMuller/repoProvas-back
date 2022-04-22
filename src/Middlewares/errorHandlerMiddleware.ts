@@ -13,6 +13,7 @@ export default function errorHandleMiddleware(err, req: Request, res: Response, 
         err.message === "An error as occured"
     }
     if (!errorTable[err.type]) {
+        console.log(err)
         return res.sendStatus(500)
     }
 

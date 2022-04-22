@@ -15,3 +15,10 @@ export async function findByEmail(email: string) {
         }
     })
 }
+
+export async function insertOneSession(id: number) {
+    const session = await prisma.sessions.create({
+        data: { userId: id }
+    })
+    return session
+}
