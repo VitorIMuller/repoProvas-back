@@ -2,9 +2,22 @@ import jwt from "jsonwebtoken"
 import { UserData } from "../Controllers/authController"
 import bcrypt from "bcrypt"
 import * as authRepository from "../Repositories/authRepository.js"
+import dotenv from "dotenv"
+import * as interfaces from "../interfaces/interfaces.js"
+dotenv.config()
 
+export async function verifyToken(token: string) {
 
-export async function signUp(user: UserData) {
+    const secretKey = process.env.JWT_SECRET
+    console.log(secretKey)
+    const sessionId = jwt.verify(token, secretKey) as string
+
+    const session = await authRepository.findSession(parseInt(sessionId))
+
+    return session.userId
+}
+
+export async function signUp(user: interfaces.userSignUp) {
 
     const { email, password } = user
 
@@ -40,3 +53,4 @@ export async function signIn({ email, password }: UserData) {
 
     return token
 }
+

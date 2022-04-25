@@ -1,5 +1,6 @@
 import { prisma } from "../database.js";
 import { UserData } from "../Controllers/authController";
+import * as interfaces from "../interfaces/interfaces.js"
 
 
 export async function insert(user: UserData) {
@@ -21,4 +22,17 @@ export async function insertOneSession(id: number) {
         data: { userId: id }
     })
     return session
+}
+
+export async function findSession(id: number) {
+
+    const session = await prisma.sessions.findUnique({
+        where: {
+            id: id
+        }
+    }
+    )
+
+    return session
+
 }

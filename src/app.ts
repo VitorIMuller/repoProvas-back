@@ -17,6 +17,6 @@ server.use(router)
 server.use(errorHandleMiddleware)
 
 
-server.listen(process.env.PORT || 4000, () => {
-    console.log(`Running in ${process.env.PORT}`)
+server.listen(process.env.PORT || 5000, () => {
+    console.log(`Running in 5000`)
 })
