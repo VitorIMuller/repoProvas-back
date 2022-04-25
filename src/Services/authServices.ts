@@ -11,7 +11,7 @@ export async function verifyToken(token: string) {
     const secretKey = process.env.JWT_SECRET
 
     const sessionId = jwt.verify(token, secretKey) as string
-    console.log(sessionId)
+
     const session = await authRepository.findSession(parseInt(sessionId))
 
     return session.userId
@@ -49,7 +49,7 @@ export async function signIn({ email, password }: UserData) {
     }
 
     const session = await authRepository.insertOneSession(user.id)
-    const token = jwt.sign({ id: session.id.toString() }, `${process.env.JWT_SECRET}`);
+    const token = jwt.sign(session.id.toString(), `${process.env.JWT_SECRET}`);
 
     return token
 }

@@ -5,7 +5,7 @@ import { ValidateToken } from "../Middlewares/validateTokenMiddleware.js";
 
 const testsRouter = Router();
 
-// testsRouter.use(ValidateToken)
+testsRouter.use(ValidateToken)
 testsRouter.get(
     "/test", getAllTests
 )
