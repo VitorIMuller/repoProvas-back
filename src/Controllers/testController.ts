@@ -3,7 +3,7 @@ import * as testsServices from "../Services/testsServices.js"
 
 
 export async function getAllTests(req: Request, res: Response) {
-    const data = await testsServices.getAllTerms()
+    const data = await testsServices.getAllTests()
 
     res.send(data);
 

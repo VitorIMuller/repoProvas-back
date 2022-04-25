@@ -1,7 +1,7 @@
-import * as categoryRepository from "../Repositories/categoryRepository.js"
+import * as termRepository from "../Repositories/termRepository.js"
 
 export async function getAllTerms() {
-    const categoriesData = await categoryRepository.findAllCategories()
+    const categoriesData = await termRepository.findAllTerms()
 
     return categoriesData
 }

@@ -12,6 +12,7 @@ export async function findAllTerms() {
                 disciplines: {
                     select: {
                         id: true,
+                        name: true,
                         teachersDisciplines: true
                     }
                 }

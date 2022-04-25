@@ -1,7 +1,7 @@
-import * as categoryRepository from "../Repositories/categoryRepository.js"
+import * as disciplineRepository from "../Repositories/disciplineRepository.js"
 
 export async function getAllDisciplines() {
-    const categoriesData = await categoryRepository.findAllCategories()
+    const categoriesData = await disciplineRepository.findAllDisciplines()
 
     return categoriesData
 }
