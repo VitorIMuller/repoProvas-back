@@ -5,7 +5,7 @@ import { ValidateToken } from "../Middlewares/validateTokenMiddleware.js";
 
 const disciplineRouter = Router();
 
-disciplineRouter.use(ValidateToken)
+// disciplineRouter.use(ValidateToken)
 disciplineRouter.get(
     "/discipline", getAllDisciplines
 )

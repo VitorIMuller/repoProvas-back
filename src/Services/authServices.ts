@@ -9,9 +9,9 @@ dotenv.config()
 export async function verifyToken(token: string) {
 
     const secretKey = process.env.JWT_SECRET
-    console.log(secretKey)
-    const sessionId = jwt.verify(token, secretKey) as string
 
+    const sessionId = jwt.verify(token, secretKey) as string
+    console.log(sessionId)
     const session = await authRepository.findSession(parseInt(sessionId))
 
     return session.userId

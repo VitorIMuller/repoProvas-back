@@ -25,10 +25,10 @@ export async function insertOneSession(id: number) {
 }
 
 export async function findSession(id: number) {
-
+    console.log(id)
     const session = await prisma.sessions.findUnique({
         where: {
-            id: id
+            id
         }
     }
     )

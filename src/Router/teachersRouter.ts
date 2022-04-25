@@ -5,7 +5,7 @@ import { ValidateToken } from "../Middlewares/validateTokenMiddleware.js";
 
 const teachersRouter = Router();
 
-teachersRouter.use(ValidateToken)
+// teachersRouter.use(ValidateToken)
 teachersRouter.get(
     "/teacher", getAllTeachers
 )

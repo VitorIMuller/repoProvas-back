@@ -5,7 +5,7 @@ import { ValidateToken } from "../Middlewares/validateTokenMiddleware.js";
 
 const categoryRouter = Router();
 
-categoryRouter.use(ValidateToken)
+// categoryRouter.use(ValidateToken)
 categoryRouter.get(
     "/category", getAllCategories
 )
