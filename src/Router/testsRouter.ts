@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllTests } from "../Controllers/testController.js";
+import * as testController from "../Controllers/testController.js";
 import { ValidateToken } from "../Middlewares/validateTokenMiddleware.js";
 
 
@@ -7,7 +7,11 @@ const testsRouter = Router();
 
 testsRouter.use(ValidateToken)
 testsRouter.get(
-    "/test", getAllTests
+    "/test", testController.getAllTests
+)
+
+testsRouter.patch(
+    "test/:id/addView", testController.addViewTest
 )
 
 
