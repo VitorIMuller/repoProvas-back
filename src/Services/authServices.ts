@@ -8,13 +8,18 @@ dotenv.config()
 
 export async function verifyToken(token: string) {
 
-    const secretKey = process.env.JWT_SECRET
+    try {
+        const secretKey = process.env.JWT_SECRET
 
-    const sessionId = jwt.verify(token, secretKey) as string
+        const sessionId = jwt.verify(token, secretKey) as string
 
-    const session = await authRepository.findSession(parseInt(sessionId))
+        const session = await authRepository.findSession(parseInt(sessionId))
 
-    return session.userId
+        return session.userId
+
+    } catch (error) {
+        throw { type: "Unauthorized" }
+    }
 }
 
 export async function signUp(user: interfaces.userSignUp) {

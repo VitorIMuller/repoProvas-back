@@ -10,3 +10,7 @@ export async function getAllTests() {
 export async function updateCountView(testId: number) {
     await testRepository.addView(testId)
 }
+
+export async function addTest(data: interfaces.createTest) {
+    await testRepository.addNewTest(data)
+}

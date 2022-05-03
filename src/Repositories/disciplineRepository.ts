@@ -9,5 +9,6 @@ export async function findAllDisciplines() {
         }
 
     })
+
     return data
 }

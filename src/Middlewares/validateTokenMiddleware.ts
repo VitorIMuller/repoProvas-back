@@ -3,7 +3,6 @@ import * as authServices from "../Services/authServices.js";
 
 export async function ValidateToken(req: Request, res: Response, next: NextFunction) {
 
-    console.log(req.params)
     const token = req.headers.authorization as string
 
     const userId = await authServices.verifyToken(token)

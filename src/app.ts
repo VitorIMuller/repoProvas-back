@@ -7,16 +7,14 @@ import router from "./Router/index.js"
 
 
 
-const server = express()
+const app = express()
 
 dotenv.config();
 
-server.use(cors());
-server.use(json());
-server.use(router)
-server.use(errorHandleMiddleware)
+app.use(cors());
+app.use(json());
+app.use(router)
+app.use(errorHandleMiddleware)
 
 
-server.listen(process.env.PORT || 5000, () => {
-    console.log(`Running in 5000`)
-})
+export default app;
